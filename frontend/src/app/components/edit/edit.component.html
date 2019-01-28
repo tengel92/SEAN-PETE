@@ -1,0 +1,40 @@
+<div>
+  <br>
+  <mat-card>
+    <section class="mat-typography">
+        <h3>Update OM Project</h3>
+    </section>
+    <mat-divider></mat-divider>
+    <br>
+    <form [formGroup]="updateForm" class="edit-form">
+      <mat-form-field class="field-full-width">
+        <input placeholder="Number" matInput formControlName="number" #number>
+      </mat-form-field>
+      <mat-form-field class="field-full-width">
+        <input placeholder="Project Name" matInput formControlName="projectName" #projectName>
+      </mat-form-field>
+      <mat-form-field class="field-full-width">
+        <textarea placeholder="Project Description" matInput formControlName="projectDescription" #projectDescription></textarea>
+      </mat-form-field>
+      <mat-form-field  class="field-full-width">
+          <mat-select placeholder="Project Type" formControlName="projectTypeDescription" #projectTypeDescription>
+            <mat-option value="Line">Line</mat-option>
+            <mat-option value="Station">Station</mat-option>
+            <mat-option value="ROW">ROW</mat-option>
+            <mat-option value="N/A">N/A</mat-option>
+          </mat-select>
+      </mat-form-field>
+      <mat-form-field class="field-full-width">
+          <mat-select placeholder="Status" formControlName="statusDescription" #statusDescription>
+            <mat-option value="Active">Active</mat-option>
+            <mat-option value="Closed">Closed</mat-option>
+            <mat-option value="Cancelled">Cancelled</mat-option>
+          </mat-select>
+      </mat-form-field>
+      <mat-divider></mat-divider>
+      <br><br>
+      <button mat-raised-button color="accent" routerLink="/list">Back</button>&nbsp;
+      <button type="submit" (click)="updateOMProject(number.value, projectName.value, projectDescription.value, projectTypeDescription.value, statusDescription.value)" [disabled]="updateForm.pristine || updateForm.invalid" mat-raised-button color="primary">Save</button>
+    </form>
+  </mat-card>
+</div>

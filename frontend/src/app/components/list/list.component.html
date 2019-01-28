@@ -1,0 +1,74 @@
+<div>
+  <br>
+  <mat-card>
+    <button mat-raised-button color="primary" routerLink="/create">Create New O&M Project</button>
+    <br><br>
+    <mat-divider></mat-divider>
+    <br>
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+    <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef  mat-sort-header> Id </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
+      <ng-container matColumnDef="number">
+        <th mat-header-cell *matHeaderCellDef  mat-sort-header> Number </th>
+        <td mat-cell *matCellDef="let element"> {{element.number}} </td>
+      </ng-container>
+      <ng-container matColumnDef="projectName">
+        <th mat-header-cell *matHeaderCellDef  mat-sort-header> Project Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.projectName}} </td>
+      </ng-container>
+      <ng-container matColumnDef="projectDescription">
+        <th mat-header-cell *matHeaderCellDef  mat-sort-header> Project Description </th>
+        <td mat-cell *matCellDef="let element"> {{element.projectDescription}} </td>
+      </ng-container>
+      <ng-container matColumnDef="statusDescription">
+        <th mat-header-cell *matHeaderCellDef  mat-sort-header> Status Description </th>
+        <td mat-cell *matCellDef="let element"> {{element.statusDescription}} </td>
+      </ng-container>
+      <ng-container matColumnDef="projectTypeDescription">
+        <th mat-header-cell *matHeaderCellDef  mat-sort-header> Project Type Description </th>
+        <td mat-cell *matCellDef="let element"> {{element.projectTypeDescription}} </td>
+      </ng-container>
+      <ng-container matColumnDef="workCenterName">
+        <th mat-header-cell *matHeaderCellDef  mat-sort-header> Work Center Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.workCenterName}} </td>
+      </ng-container>
+      <ng-container matColumnDef="districtName">
+        <th mat-header-cell *matHeaderCellDef  mat-sort-header> District Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.districtName}} </td>
+      </ng-container>
+      <ng-container matColumnDef="regionName">
+        <th mat-header-cell *matHeaderCellDef  mat-sort-header> Region Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.regionName}} </td>
+      </ng-container>
+      <ng-container matColumnDef="fiscalYear">
+        <th mat-header-cell *matHeaderCellDef  mat-sort-header> Fiscal Year </th>
+        <td mat-cell *matCellDef="let element"> {{element.fiscalYear}} </td>
+      </ng-container>
+      <ng-container matColumnDef="omProjectTagNames">
+        <th mat-header-cell *matHeaderCellDef  mat-sort-header> Tag Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.omProjectTagNames}} </td>
+      </ng-container>
+      <ng-container matColumnDef="omProjectFollowerDisplayNames">
+        <th mat-header-cell *matHeaderCellDef  mat-sort-header> Display Names </th>
+        <td mat-cell *matCellDef="let element"> {{element.omProjectFollowerDisplayNames}} </td>
+      </ng-container>
+      <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef class="mat-column-right"> Actions </th>
+          <td mat-cell *matCellDef="let element" class="mat-column-right">
+            <button mat-button color="primary" (click)="editOMProject(element._id)">Edit</button>
+            <button mat-button color="warn" (click)="deleteOMProject(element._id)">Delete</button>
+          </td>
+        </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  </div>
+  </mat-card>
+</div>
