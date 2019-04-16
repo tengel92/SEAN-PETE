@@ -7,27 +7,27 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 
-//Angular CLI Generated Custom Components
+// Angular CLI Generated Custom Components
 import { ListComponent } from './components/list/list.component';
 import { CreateComponent } from './components/create/create.component';
 import { EditComponent } from './components/edit/edit.component';
 
-//Angular CLI Generated Custom Services
+// Angular CLI Generated Custom Services
 import { OMProjectSearchService } from './om-project-search.service';
 
-//Angular Material Module imports
-import { MatToolbarModule, 
-  MatFormFieldModule, 
-  MatInputModule, 
-  MatOptionModule, 
-  MatSelectModule, 
-  MatIconModule, 
-  MatButtonModule, 
-  MatCardModule, 
+// Angular Material Module imports
+import { MatToolbarModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatOptionModule,
+  MatSelectModule,
+  MatIconModule,
+  MatButtonModule,
+  MatCardModule,
   MatTableModule,
   MatPaginatorModule,
   MatSortModule,
-  MatDividerModule, 
+  MatDividerModule,
   MatSnackBarModule } from '@angular/material';
 
 const routes: Routes = [
