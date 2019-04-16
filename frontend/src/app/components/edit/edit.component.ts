@@ -16,10 +16,14 @@ export class EditComponent implements OnInit {
   id: Number;
   omProject: any = {};
   updateForm: FormGroup;
-  constructor(private omProjectSearchService: OMProjectSearchService, private router: Router, private route: ActivatedRoute, private snackBar: MatSnackBar, private fb: FormBuilder) { 
-    this.createForm();
+  constructor(private omProjectSearchService: OMProjectSearchService,
+    private router: Router,
+    private route: ActivatedRoute,
+    private snackBar: MatSnackBar,
+    private fb: FormBuilder) {
+      this.createForm();
   }
-  
+
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.id = params.id;
@@ -42,12 +46,13 @@ export class EditComponent implements OnInit {
       statusDescription: ''
     });
   }
-  
+
   updateOMProject(id, number, projectName, projectDescription, statusDescription, projectTypeDescription) {
-    this.omProjectSearchService.updateOMProject(this.id, number, projectName, projectDescription, statusDescription, projectTypeDescription).subscribe(() => {
-      this.snackBar.open('OM Project updated successfully', 'OK', {
-        duration: 3000,
+    this.omProjectSearchService.updateOMProject(this.id, number, projectName, projectDescription, statusDescription, projectTypeDescription)
+      .subscribe(() => {
+        this.snackBar.open('OM Project updated successfully', 'OK', {
+          duration: 3000,
+        });
       });
-    });
   }
 }

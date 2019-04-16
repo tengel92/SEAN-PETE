@@ -11,25 +11,26 @@ import { OMProjectSearchService } from '../../om-project-search.service';
 })
 
 export class CreateComponent implements OnInit {
-  
+
   createForm: FormGroup;
-  
+
   constructor(private omProjectSearchService: OMProjectSearchService, private fb: FormBuilder, private router: Router) {
     this.createForm = this.fb.group({
-      number: ['', Validators.required], 
+      number: ['', Validators.required],
       projectName: '',
       projectDescription: '',
       projectTypeDescription: '',
       statusDescription: ''
     });
   }
-  
+
   createOMProject(number, projectName, projectDescription, projectTypeDescription, statusDescription) {
-    this.omProjectSearchService.createOMProject(number, projectName, projectDescription, projectTypeDescription, statusDescription).subscribe(() => {
-      this.router.navigate(['/list']);
-    });
+    this.omProjectSearchService.createOMProject(number, projectName, projectDescription, projectTypeDescription, statusDescription)
+      .subscribe(() => {
+        this.router.navigate(['/list']);
+      });
   }
-  
+
   ngOnInit() {
 
   }

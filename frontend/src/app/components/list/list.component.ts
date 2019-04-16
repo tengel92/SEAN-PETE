@@ -15,18 +15,18 @@ import { OMProjectSearch } from '../../om-project-search';
 export class ListComponent implements OnInit {
 
   omProjects: OMProjectSearch[];
-  
+
   displayedColumns = ['id', 'number', 'projectName', 'projectDescription', 'statusDescription', 'projectTypeDescription', 'actions'];
 
   dataSource: MatTableDataSource<OMProjectSearch>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
-  
+
   constructor(private omProjectSearchService: OMProjectSearchService, private router: Router) {
     // this.dataSource = new MatTableDataSource(this.omProjects);
    }
-  
+
   ngOnInit() {
     this.getOMProjects();
   }
@@ -38,7 +38,7 @@ export class ListComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
-  
+
   getOMProjects() {
     this.omProjectSearchService
     .getOMProjects()
@@ -48,14 +48,14 @@ export class ListComponent implements OnInit {
       console.log(this.omProjects);
       this.dataSource = new MatTableDataSource(this.omProjects);
       this.dataSource.paginator = this.paginator;
-      this.dataSource.sort = this.sort; 
+      this.dataSource.sort = this.sort;
     });
   }
-  
+
   editOMProject(id) {
     this.router.navigate([`/edit/${id}`]);
   }
-  
+
   deleteOMProject(id) {
     this.omProjectSearchService.deleteOMProject(id).subscribe(() => {
       this.getOMProjects();
